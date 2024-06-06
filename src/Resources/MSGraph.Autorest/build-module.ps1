@@ -97,7 +97,7 @@ if(-not $Debugger) {
   $null = Remove-Item -Recurse -ErrorAction SilentlyContinue -Path (Join-Path $binFolder 'Debug'), (Join-Path $binFolder 'Release')
 }
 
-$dll = Join-Path $PSScriptRoot 'bin\Az.MSGraph.private.dll'
+$dll = Join-Path $PSScriptRoot 'bin/Az.MSGraph.private.dll'
 if(-not (Test-Path $dll)) {
   Write-Error "Unable to find output assembly in '$binFolder'."
 }
@@ -106,7 +106,7 @@ if(-not (Test-Path $dll)) {
 $null = Import-Module -Name $dll
 
 $modulePaths = $dll
-$customPsm1 = Join-Path $PSScriptRoot 'custom\Az.MSGraph.custom.psm1'
+$customPsm1 = Join-Path $PSScriptRoot 'custom/Az.MSGraph.custom.psm1'
 if(Test-Path $customPsm1) {
   $modulePaths = @($dll, $customPsm1)
 }
